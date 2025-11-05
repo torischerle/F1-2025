@@ -41,6 +41,9 @@ merged_laps["PerformanceChange (%)"] = (merged_laps["LapTimeDifference (s)"] / m
 # Create wet performance score
 merged_laps["WetPerformanceScore"] = 1 + merged_laps["PerformanceChange (%)"] / 100
 
+wet_performance_score = merged_laps[["Driver", "WetPerformanceScore"]]
+
 # Print the wet performance results for each driver
 print("\n🌧️ Driver Wet Performance scores (Canada GP 2022 vs 2023):")
 print(merged_laps[["Driver", "LapTime (s)_2022", "LapTime (s)_2023", "LapTimeDifference (s)", "PerformanceChange (%)", "WetPerformanceScore"]])
+# print(merged_laps[["Driver", "WetPerformanceScore"]])

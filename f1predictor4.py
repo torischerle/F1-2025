@@ -63,7 +63,16 @@ qualifying_2025["DriverCode"] = qualifying_2025["Driver"].map(driver_mapping)
 merged_data = qualifying_2025.merge(sector_times_2024, left_on="DriverCode", right_on="Driver", how="left")
 print("Merged Data:\n", merged_data)
 
+print("\nCalculating Wet Performance Scores...", wet_performance_score)
 
+driver_wet_scores = {
+    wet_performance_score.iloc[i]["Driver"]: wet_performance_score.iloc[i]["WetPerformanceScore"]
+    for i in range(len(wet_performance_score))
+    if wet_performance_score.iloc[i]["Driver"] in merged_data["Driver"].values
+}
+
+# Map wet performance scores to merged_data
+merged_data["WetPerformanceScore"] = merged_data["DriverCode"].map(driver_wet_scores)
 
 # Use only "QualifyingTime (s)" AND Sector Times as features
 X = merged_data[["QualifyingTime (s)", "Sector1Time (s)", "Sector2Time (s)", "Sector3Time (s)"]].fillna(0)

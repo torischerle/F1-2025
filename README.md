@@ -27,8 +27,12 @@ Expected outcome:
 Model performance is evaluated using the Mean Absolute Error (MAE). 
 
 ## File Structure, Features added & Effect on MAE
-Only using 2024 race and 2025 quali data = MAE 49.50 secs
-Add sector times = MAE 
+f1predictor1 = Using 2024 race and 2025 quali data = MAE 49.50 secs
+f1predictor2 = Add sector times = MAE 
+f1predictor3 = Only 2024 race data = MAE 
+f1predictor4 = Add wet performance data & weather API = MAE
+f1predictor5 = Add clean air race pace = MAE 
+
 
 ## Next Steps
 
